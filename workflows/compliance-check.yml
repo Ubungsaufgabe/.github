@@ -4,6 +4,7 @@ name: "Create branch protection rule and notify"
 on:
   repository_dispatch:
     types: [org-workflow-bot]  # <-- requirement to trigger central workflows
+  workflow_dispatch:
 
 jobs:
   create-branch-protection-rule-and-notify:
