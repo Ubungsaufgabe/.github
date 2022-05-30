@@ -24,6 +24,7 @@ jobs:
       uses: infamous-riddles/branch-guardian@v1
       with: 
         PERSONAL-ACCESS-TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BASE-BRANCH-PATTERN: '*'
         REQUIRED-NUMBER-OF-REVIEWERS: 2
     - name: Protection Issue Creation
       uses: JasonEtco/create-an-issue@v2
