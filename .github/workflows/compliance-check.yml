@@ -23,11 +23,11 @@ jobs:
     # - name: Branch Guardian
     #   uses: infamous-riddles/branch-guardian@v1
     #   with: 
-    #     PERSONAL-ACCESS-TOKEN: ${{ secrets.bpr_pat }}
+    #     PERSONAL-ACCESS-TOKEN: ${{ secrets.PAT }}
     #     REQUIRED-NUMBER-OF-REVIEWERS: 2
     - name: Protection Issue Creation
       uses: JasonEtco/create-an-issue@v2
       env:
-        GITHUB_TOKEN: ${{ secrets.bpr_pat }}
+        GITHUB_TOKEN: ${{ secrets.PAT }}
       with:
         filename: .github/branch_protection_template.md
