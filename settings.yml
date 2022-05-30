@@ -1,0 +1,8 @@
+settings:
+  - team: dev-team
+    labels: [dev-team]
+    branchProtection:
+      minReviews: 2
+      requireCodeOwners: true
+      requireBuildChecks: true
+      includeAdministrators: true
