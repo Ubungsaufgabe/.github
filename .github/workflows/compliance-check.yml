@@ -20,11 +20,11 @@ jobs:
         name: ${{ github.workflow }} 
         enforce: true
         enforce_admin: true
-    - name: Branch Guardian
-      uses: infamous-riddles/branch-guardian@v1
-      with: 
-        PERSONAL-ACCESS-TOKEN: ${{ secrets.BRANCH_PROTECTION_RULE_SECRET }}
-        REQUIRED-NUMBER-OF-REVIEWERS: 2
+    # - name: Branch Guardian
+    #   uses: infamous-riddles/branch-guardian@v1
+    #   with: 
+    #     PERSONAL-ACCESS-TOKEN: ${{ secrets.BRANCH_PROTECTION_RULE_SECRET }}
+    #     REQUIRED-NUMBER-OF-REVIEWERS: 2
     - name: Protection Issue Creation
       uses: JasonEtco/create-an-issue@v2
       env:
