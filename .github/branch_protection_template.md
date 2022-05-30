@@ -11,5 +11,5 @@ Notifying @knowncitizen
 
 Additional information:
 Ref?: {{ ref }}
-Repo?: {{ repo }}
-Original payload: {{ payload }}
+Repo?: {{ repo.name }}
+Original payload: {{ payload.repository.name }}
