@@ -19,16 +19,16 @@ jobs:
         enforce: true
         enforce_admin: true
     - name: Branch Guardian
-      - uses: actions/checkout@v2
-      - uses: infamous-riddles/branch-guardian@v1
-        with: 
-          PERSONAL-ACCESS-TOKEN: ${{ secrets.bpr_pat }}
-          REQUIRED-NUMBER-OF-REVIEWERS: 2
+      uses: actions/checkout@v2
+      uses: infamous-riddles/branch-guardian@v1
+      with: 
+        PERSONAL-ACCESS-TOKEN: ${{ secrets.bpr_pat }}
+        REQUIRED-NUMBER-OF-REVIEWERS: 2
     - name: Create Comment
-      - uses: actions/checkout@v2
-      - uses: actions-ecosystem/action-create-comment@v1
-        if: ${{ startsWith(github.event.comment.body, '/hello') }}
-        with:
-          github_token: ${{ secrets.bpr_pat }}
-          body: |
-            Hello, @knowncitizen, set required number of reviewers to 2!
+      uses: actions/checkout@v2
+      uses: actions-ecosystem/action-create-comment@v1
+      if: ${{ startsWith(github.event.comment.body, '/hello') }}
+      with:
+        github_token: ${{ secrets.bpr_pat }}
+        body: |
+          Hello, @knowncitizen, set required number of reviewers to 2!
