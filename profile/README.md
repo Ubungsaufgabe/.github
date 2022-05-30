@@ -8,3 +8,7 @@ The goals of this repository is to help organize the parent organization _Ubungs
 - Self-service: anyone can create a new repository
 - New repositories always get (initial) default settings
 - Some repository settings cannot be changed
+
+## Known issues
+- Need to fix the issue creation to be on the new repo, not on the .github org repo
+- Apparently the new repo needs to have a readme when creating
