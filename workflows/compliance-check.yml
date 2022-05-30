@@ -1,0 +1,34 @@
+#creates branch protection rule using organization workflow
+name: "Create branch protection rule and notify"
+
+on:
+  repository_dispatch:
+    types: [org-workflow-bot]  # <-- requirement to trigger central workflows
+
+jobs:
+  create-branch-protection-rule-and-notify:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: SvanBoxel/organization-workflow@main
+      with:
+        id: ${{ github.event.client_payload.id }}
+        callback_url: ${{ github.event.client_payload.callback_url }}
+        sha: ${{ github.event.client_payload.sha }}
+        run_id: ${{ github.run_id }}
+        name: ${{ github.workflow }} 
+        enforce: true
+        enforce_admin: true
+    - name: Branch Guardian
+      - uses: actions/checkout@v2
+      - uses: infamous-riddles/branch-guardian@v1
+        with: 
+          PERSONAL-ACCESS-TOKEN: ${{ secrets.bpr_pat }}
+          REQUIRED-NUMBER-OF-REVIEWERS: 2
+    - name: Create Comment
+      - uses: actions/checkout@v2
+      - uses: actions-ecosystem/action-create-comment@v1
+        if: ${{ startsWith(github.event.comment.body, '/hello') }}
+        with:
+          github_token: ${{ secrets.bpr_pat }}
+          body: |
+            Hello, @knowncitizen, set required number of reviewers to 2!
