@@ -9,6 +9,7 @@ jobs:
   create-branch-protection-rule-and-notify:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v3
     - uses: SvanBoxel/organization-workflow@main
       with:
         id: ${{ github.event.client_payload.id }}
